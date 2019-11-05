@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdufcb.gdufapi.Mapper.loginMapper">
+
+    <insert id="insertUser" parameterType="String">
+        insert into user_login (user,state) values(#{user},1)
+    </insert>
+
+    <update id="changestate" parameterType="String" >
+        update user_login set state = 1 where user = #{user}
+    </update>
+
+    <select id="ifOnline" parameterType="String" resultType="java.lang.String">
+        select state from user_login where user = #{user}
+    </select>
+
+
+</mapper>

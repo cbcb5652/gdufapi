@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdufcb.gdufapi.Mapper.userMapper">
+
+    <insert id="insert" parameterType="com.gdufcb.gdufapi.Pojo.userIndex">
+        insert into user_index (user,addUser) values(#{user},#{addUser})
+    </insert>
+
+    <select id="findUser" resultType="String">
+        select addUser from user_index where user = #{user}
+    </select>
+
+    <select id="exitUser" resultType="java.lang.String">
+        select user from user_index where user = #{user} and addUser = #{addUser}
+    </select>
+
+    <delete id="delete" parameterType="com.gdufcb.gdufapi.Pojo.userIndex">
+        delete  from user_index where user = #{user} and addUser = #{addUser}
+    </delete>
+
+</mapper>
